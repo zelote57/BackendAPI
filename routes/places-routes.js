@@ -1,4 +1,5 @@
 const express = require('express');
+const uuid = require('uuid');
 const HttpError = require('../models/http-error');
 
 const router = express.Router();
@@ -50,6 +51,7 @@ router.get('/users/:uid', (req, res, next)=>{
 router.post('/', (req, res, next)=>{
     const {title, creator} = req.body;
     const createdPlace = {
+        id: uuid.v4(),
         title,
         creator
     };
